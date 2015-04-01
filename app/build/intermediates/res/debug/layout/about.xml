@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/lib/com.google.ads" >
+<TextView 
+    android:id="@+id/text_about"
+    android:text="@string/about_text1"
+    android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Title"
+    
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true"
+    android:padding="5dp"
+    />
+    <ImageView 
+        android:id="@+id/about_pic"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:adjustViewBounds="true"
+        
+        android:layout_below="@id/text_about"
+        android:padding="5dp"
+	/>
+    <TextView 
+        android:id="@+id/txt_link"
+    android:text="@string/about_link"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true"
+    android:layout_below="@id/about_pic"
+    android:padding="5dp"/>
+<!-- Old Banner ads
+<com.google.android.gms.ads.AdView
+    xmlns:googleads="http://schemas.android.com/apk/lib/com.google.ads"
+    android:id="@+id/ad_about"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    
+    android:layout_alignParentBottom="true"
+    app:adSize="BANNER"
+    app:adUnitId="@string/admob_id" >
+
+</com.google.android.gms.ads.AdView>
+-->
+  <TextView 
+        android:id="@+id/txt_youtube"
+    android:text="@string/about_link"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true"
+    android:layout_below="@id/txt_link"
+    android:padding="5dp"/>
+  
+   <TextView 
+        android:id="@+id/txt_lcs"
+    android:text="@string/about_link"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true"
+    android:layout_below="@id/txt_youtube"
+    android:padding="5dp"/>
+    <!--android:layout_above="@id/ad_about"-->
+  
+
+</RelativeLayout>
+<!-- From: file:/C:/Users/Leandro/AndroidStudioProjects/PedidoDeMusica2/app/src/main/res/layout/about.xml -->
