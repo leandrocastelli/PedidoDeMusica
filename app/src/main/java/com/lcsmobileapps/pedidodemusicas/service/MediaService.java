@@ -36,7 +36,7 @@ public class MediaService extends Service implements SoundPlayer{
 		super.onCreate();
 		//player = MediaPlayer.create(this,R.raw.green);
         ads = new InterstitialAd(this);
-        ads.setAdUnitId("ca-app-pub-6157311586051121/8564144495");
+        ads.setAdUnitId("ca-app-pub-6157311586051121/5921794890");
         ads.loadAd(new AdRequest.Builder().build());
         ads.setAdListener(new AdListener() {
             @Override
