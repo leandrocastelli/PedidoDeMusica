@@ -13,6 +13,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.util.LruCache;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.WindowManager;
@@ -36,6 +37,9 @@ public class PedidosActivity extends ActionBarActivity implements ServiceConnect
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 		bindService(new Intent(this,MediaService.class), this, Context.BIND_AUTO_CREATE);
 		setContentView(R.layout.activity_pedidos);
+        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
+        toolbar.setSubtitle(getString(R.string.app_name));
+        setSupportActionBar(toolbar);
 		final int maxMemory = (int)(Runtime.getRuntime().maxMemory() /1024);
 		
 		int cacheSize = maxMemory/12;

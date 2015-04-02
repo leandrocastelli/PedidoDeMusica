@@ -16,7 +16,8 @@ import android.os.Vibrator;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -30,8 +31,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
 import com.lcsmobileapps.pedidodemusicas.PedidosActivity;
 import com.lcsmobileapps.pedidodemusicas.R;
 import com.lcsmobileapps.pedidodemusicas.adapter.CustomListAdapter;
@@ -46,9 +45,11 @@ public class MainFragment extends Fragment{
 	
 		final View v = inflater.inflate(R.layout.pedidos_fragment, container,false);
 		setHasOptionsMenu(true);
-		((ActionBarActivity) getActivity()).getSupportActionBar().setHomeButtonEnabled(false);
-		getActivity().setTitle(getString(R.string.app_name));
-		ListView listView = (ListView)v.findViewById(R.id.list_view);
+
+        RecyclerView recyclerView = (RecyclerView)v.findViewById(R.id.my_recycler_view);
+
+        /*
+        ListView listView = (ListView)v.findViewById(R.id.list_view);
 		listView.setAdapter(new CustomListAdapter(getActivity()));
 		listView.setOnItemClickListener(new OnItemClickListener() {
 
@@ -72,6 +73,10 @@ public class MainFragment extends Fragment{
 			}
 			
 		});
+
+		*/
+
+        
 		//Old Banner Ads
 			//AdView adView = (AdView)v.findViewById(R.id.ad);
 			//String locationProvider = LocationManager.NETWORK_PROVIDER;
