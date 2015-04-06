@@ -11,6 +11,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.lcsmobileapps.pedidodemusicas.PedidosActivity;
 import com.lcsmobileapps.pedidodemusicas.R;
 import com.lcsmobileapps.pedidodemusicas.util.ImageHelper;
 
@@ -24,12 +25,20 @@ public class CustomListAdapter extends RecyclerView.Adapter<CustomListAdapter.Vi
 		ImageView imageView;
 		TextView txtName;
 		CardView cardView;
+        int position;
 
-        public ViewHolder(View v) {
+        public ViewHolder(View v, final Context ctx) {
             super(v);
             this.cardView = (CardView)v;
             imageView = (ImageView)v.findViewById(R.id.radio_icon);
             txtName = (TextView)v.findViewById(R.id.sound_name);
+            cardView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    PedidosActivity activity = (PedidosActivity)ctx;
+                    activity.getPlayer().startPlaying(PedidosActivity.FIRST+position);
+                }
+            });
         }
 	}
 	public CustomListAdapter (Context ctx) {
@@ -54,7 +63,7 @@ public class CustomListAdapter extends RecyclerView.Adapter<CustomListAdapter.Vi
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item, parent, false);
 
-        ViewHolder vh = new ViewHolder(v);
+        ViewHolder vh = new ViewHolder(v,ctx);
 
         return vh;
     }
@@ -65,6 +74,9 @@ public class CustomListAdapter extends RecyclerView.Adapter<CustomListAdapter.Vi
         holder.txtName.setText(ctx.getResources().getStringArray(R.array.musicas_list)[position]);
 //		ImageHelper.loadImage(holder.imageView, R.id.radio_icon, ctx);
         holder.imageView.setImageResource(R.drawable.ic_radio);
+        holder.position = position;
+
+
 
     }
 
