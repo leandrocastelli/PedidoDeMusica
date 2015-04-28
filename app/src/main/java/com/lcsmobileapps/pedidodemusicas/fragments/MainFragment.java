@@ -8,8 +8,6 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.location.Location;
-import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Vibrator;
@@ -30,8 +28,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
 import com.lcsmobileapps.pedidodemusicas.PedidosActivity;
 import com.lcsmobileapps.pedidodemusicas.R;
 import com.lcsmobileapps.pedidodemusicas.adapter.CustomListAdapter;
@@ -40,7 +36,7 @@ import com.lcsmobileapps.pedidodemusicas.filemanager.FileManager.Props;
 
 
 public class MainFragment extends Fragment{
-	public final static int FIRST = R.raw.a_vo_do_nelson_nuggets;
+	public final static int FIRST = R.raw.pedido_a_vo_do_nelson_nuggets;
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 	
