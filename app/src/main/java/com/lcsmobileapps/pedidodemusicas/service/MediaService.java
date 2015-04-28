@@ -14,8 +14,9 @@ import com.google.android.gms.ads.InterstitialAd;
 
 public class MediaService extends Service implements SoundPlayer{
 
-	public static final String LOG = "Team7";
+	public static final String LOG = "PedidoDeMusica";
     protected  boolean adLoaded = false;
+    private int idPlaying = -1;
 	public class LocalBinder extends Binder
 	{
 		public SoundPlayer getSoundPlayer() {
@@ -34,7 +35,7 @@ public class MediaService extends Service implements SoundPlayer{
 	@Override
 	public void onCreate() {
 		super.onCreate();
-		//player = MediaPlayer.create(this,R.raw.green);
+
         ads = new InterstitialAd(this);
         ads.setAdUnitId("ca-app-pub-6157311586051121/5921794890");
         ads.loadAd(new AdRequest.Builder().build());
@@ -51,6 +52,8 @@ public class MediaService extends Service implements SoundPlayer{
                 if(player!=null) {
                     player.stop();
                     player.release();
+                    player = null;
+                    idPlaying = -1;
                 }
             }
 
@@ -88,8 +91,9 @@ public class MediaService extends Service implements SoundPlayer{
 
 				}
 			});
-
+            idPlaying = soundID;
 			player.start();
+
 		}
 		catch (IllegalStateException e) {
 			player = null;
@@ -101,9 +105,12 @@ public class MediaService extends Service implements SoundPlayer{
 	public void onDestroy() {
 
 		super.onDestroy();
-		if(player!=null) {
-			player.stop();
+
+		if(player != null) {
+            player.stop();
 			player.release();
+            player = null;
+            idPlaying = -1;
 		}
 	}
 	
@@ -115,5 +122,18 @@ public class MediaService extends Service implements SoundPlayer{
 	}
     public boolean isAdLoaded() {
         return adLoaded;
+    }
+
+    public int playingId() {
+        return idPlaying;
+    }
+
+    public void stopPlaying() {
+        if (player != null && player.isPlaying()) {
+            player.stop();
+            player.release();
+            player = null;
+            idPlaying = -1;
+        }
     }
 }

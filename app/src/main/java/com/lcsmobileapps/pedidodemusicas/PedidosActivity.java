@@ -11,14 +11,10 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.util.LruCache;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.WindowManager;
 
-import com.lcsmobileapps.pedidodemusicas.fragments.AboutFragment;
 import com.lcsmobileapps.pedidodemusicas.fragments.MainFragment;
 import com.lcsmobileapps.pedidodemusicas.service.MediaService;
 import com.lcsmobileapps.pedidodemusicas.service.MediaService.LocalBinder;
@@ -30,7 +26,7 @@ import com.lcsmobileapps.pedidodemusicas.util.ImageHelper;
 public class PedidosActivity extends ActionBarActivity implements ServiceConnection {
 
 	private SoundPlayer soundPlayer;
-	public final static int FIRST = R.raw.a_vo_do_nelson_nuggets;
+	public final static int FIRST = R.raw.pedido_a_vo_do_nelson_nuggets;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

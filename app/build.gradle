@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "com.lcsmobileapps.pedidodemusicas"
-        minSdkVersion 9
+        minSdkVersion 11
         targetSdkVersion 21
     }
 
